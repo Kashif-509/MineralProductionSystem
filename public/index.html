@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mineral Revenue Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 p-6">
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded shadow">
+      <header>
+        <h1 class="text-2xl mb-4 font-bold text-center">
+          Mineral Production System
+        </h1>
+      </header>
+
+      <main>
+        <form id="mineralForm" class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Year Select -->
+            <div>
+              <label for="yearSelect" class="block mb-2"
+                >Please Select the Year of Mineral Production:</label
+              >
+              <select
+                id="yearSelect"
+                name="year"
+                required
+                class="w-full p-2 border rounded"
+              >
+                <option value="">Select Year</option>
+                <!-- Dynamically generate options from 2000 to 2050 -->
+                <script>
+                  const currentYear = new Date().getFullYear();
+                  const select = document.getElementById("yearSelect");
+                  for (let year = 2000; year <= 2050; year++) {
+                    const option = document.createElement("option");
+                    option.value = year;
+                    option.textContent = year;
+                    select.appendChild(option);
+                  }
+                </script>
+              </select>
+            </div>
+
+            <!-- Month Select -->
+            <div id="monthSelectDiv" class="hidden">
+              <label for="monthSelect" class="block mb-2"
+                >Please Select the Month:</label
+              >
+              <select
+                id="monthSelect"
+                name="month"
+                class="w-full p-2 border rounded"
+              >
+                <option value="">Select Month</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+              </select>
+            </div>
+
+            <!-- District Select -->
+            <div>
+              <label for="district" class="block mb-2"
+                >Please Select the Field Office:</label
+              >
+              <select
+                id="district"
+                name="district"
+                required
+                class="w-full p-2 border rounded"
+              >
+                <option value="">Select District</option>
+                <option value="ATTOCK">Attock</option>
+                <option value="CHAKWAL">Chakwal</option>
+                <option value="D.G.KHAN">DG Khan</option>
+                <option value="JHELUM">Jhelum</option>
+                <option value="KHUSHAB">Khushab</option>
+                <option value="MIANWALI">Mianwali</option>
+                <option value="RAWALPINDI">Rawalpindi</option>
+                <option value="RAHIMYAR KHAN">Rahim Yar Khan</option>
+              </select>
+            </div>
+
+            <!-- Mineral Fields -->
+            <div>
+              <label for="limestone" class="block mb-2"
+                >Limestone (Production per Metric Ton):</label
+              >
+              <input
+                type="number"
+                id="limestone"
+                name="Limestone"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <div>
+              <label for="limestoneLsm" class="block mb-2"
+                >Limestone LSM (Production Per Metric Ton):</label
+              >
+              <input
+                type="number"
+                id="limestoneLsm"
+                name="Limestone_LSM"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Additional Mineral Fields -->
+            <!-- Argillaceous Clay -->
+            <div>
+              <label for="argillaceousClay" class="block mb-2"
+                >Argillaceous Clay (LSM):</label
+              >
+              <input
+                type="number"
+                id="argillaceousClay"
+                name="Argillaceous_clay"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Bauxite -->
+            <div>
+              <label for="bauxite" class="block mb-2">Bauxite:</label>
+              <input
+                type="number"
+                id="bauxite"
+                name="Bauxite"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Bentonite -->
+            <div>
+              <label for="bentonite" class="block mb-2">Bentonite:</label>
+              <input
+                type="number"
+                id="bentonite"
+                name="Bentonite"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Brine (LSM) -->
+            <div>
+              <label for="brine" class="block mb-2">Brine (LSM):</label>
+              <input
+                type="number"
+                id="brine"
+                name="Brine"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Coal -->
+            <div>
+              <label for="coal" class="block mb-2">Coal:</label>
+              <input
+                type="number"
+                id="coal"
+                name="Coal"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Coal (LSM) -->
+            <div>
+              <label for="coalLsm" class="block mb-2">Coal (LSM):</label>
+              <input
+                type="number"
+                id="coalLsm"
+                name="Coal_LSM"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- China Clay -->
+            <div>
+              <label for="chinaClay" class="block mb-2">China Clay:</label>
+              <input
+                type="number"
+                id="chinaClay"
+                name="China_Clay"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Dolomite -->
+            <div>
+              <label for="dolomite" class="block mb-2">Dolomite:</label>
+              <input
+                type="number"
+                id="dolomite"
+                name="Dolomite"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Fireclay -->
+            <div>
+              <label for="fireclay" class="block mb-2">Fireclay:</label>
+              <input
+                type="number"
+                id="fireclay"
+                name="Fireclay"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Fuller Earth -->
+            <div>
+              <label for="fullerEarth" class="block mb-2">Fuller Earth:</label>
+              <input
+                type="number"
+                id="fullerEarth"
+                name="Fuller_Earth"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Gypsum -->
+            <div>
+              <label for="gypsum" class="block mb-2">Gypsum:</label>
+              <input
+                type="number"
+                id="gypsum"
+                name="Gypsum"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Gypsum LSM -->
+            <div>
+              <label for="gypsumLsm" class="block mb-2">Gypsum LSM:</label>
+              <input
+                type="number"
+                id="gypsumLsm"
+                name="Gypsum_LSM"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Iron Ore -->
+            <div>
+              <label for="ironOre" class="block mb-2">Iron Ore:</label>
+              <input
+                type="number"
+                id="ironOre"
+                name="Iron_Ore"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Latrite -->
+            <div>
+              <label for="latrite" class="block mb-2">Latrite:</label>
+              <input
+                type="number"
+                id="latrite"
+                name="Latrite"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Marble -->
+            <div>
+              <label for="marble" class="block mb-2">Marble:</label>
+              <input
+                type="number"
+                id="marble"
+                name="Marble"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Ochers -->
+            <div>
+              <label for="ochers" class="block mb-2">Ochers:</label>
+              <input
+                type="number"
+                id="ochers"
+                name="Ochers"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- RockSalt -->
+            <div>
+              <label for="rockSalt" class="block mb-2">RockSalt:</label>
+              <input
+                type="number"
+                id="rockSalt"
+                name="RockSalt"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- RockSalt LSM -->
+            <div>
+              <label for="rockSaltLSM" class="block mb-2">RockSalt LSM:</label>
+              <input
+                type="number"
+                id="rockSaltLSM"
+                name="RockSalt_LSM"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+            <!-- Silica Sand -->
+            <div>
+              <label for="silicaSand" class="block mb-2">Silica Sand:</label>
+              <input
+                type="number"
+                id="silicaSand"
+                name="Silica_Sand"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Silica Sand (LSM) -->
+            <div>
+              <label for="silicaSandLsm" class="block mb-2"
+                >Silica Sand (LSM):</label
+              >
+              <input
+                type="number"
+                id="silicaSandLsm"
+                name="Silica_Sand_LSM"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Ordinary Salt -->
+            <div>
+              <label for="ordinarySalt" class="block mb-2"
+                >Ordinary Salt:</label
+              >
+              <input
+                type="number"
+                id="ordinarySalt"
+                name="Ordinary_Salt"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Lake Salt -->
+            <div>
+              <label for="lakeSalt" class="block mb-2">Lake Salt:</label>
+              <input
+                type="number"
+                id="lakeSalt"
+                name="Lake_Salt"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Sand Gravel (LSM) -->
+            <div>
+              <label for="sandGravelLsm" class="block mb-2"
+                >Sand Gravel (LSM):</label
+              >
+              <input
+                type="number"
+                id="sandGravelLsm"
+                name="Sand_Gravel_LSM"
+                required
+                class="w-full p-2 border rounded"
+              />
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col-span-2 text-center">
+              <button
+                type="submit"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <script>
+      document
+        .getElementById("yearSelect")
+        .addEventListener("change", function () {
+          const monthSelectDiv = document.getElementById("monthSelectDiv");
+          if (this.value === "2024") {
+            monthSelectDiv.classList.remove("hidden");
+          } else {
+            monthSelectDiv.classList.add("hidden");
+            document.getElementById("monthSelect").value = "";
+          }
+        });
+
+      document
+        .getElementById("mineralForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+          const form = event.target;
+          const formData = new FormData(form);
+
+          // Convert FormData to JSON object
+          const data = {};
+          formData.forEach((value, key) => {
+            data[key] = value;
+          });
+
+          try {
+            const response = await fetch("/api/mineral-revenues", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+              throw new Error("Failed to save mineral data.");
+            }
+
+            alert(
+              "Your Mineral Production data has been inserted successfully."
+            );
+            form.reset(); // Reset the form after successful submission
+            document.getElementById("monthSelectDiv").classList.add("hidden"); // Hide month select if visible
+          } catch (error) {
+            console.error("Error:", error);
+            alert(
+              "Failed to save mineral data. Please try again or contact support."
+            );
+          }
+        });
+    </script>
+  </body>
+</html>
